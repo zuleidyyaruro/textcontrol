@@ -22,12 +22,20 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/stimulsoft"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/stimulsoft/stimulsoft.viewer.office2013.whiteblue.css",
+              "src/assets/stimulsoft/stimulsoft.designer.office2013.whiteblue.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/custom.js",
+              "src/assets/stimulsoft/stimulsoft.reports.js",
+              "src/assets/stimulsoft/stimulsoft.viewer.js",
+              "src/assets/stimulsoft/stimulsoft.designer.js"
+            ]
           },
           "configurations": {
             "production": {
