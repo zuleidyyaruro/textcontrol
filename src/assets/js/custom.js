@@ -1,7 +1,7 @@
 async function saveDocument() {
 
-  // TXTextControl.saveDocument(TXTextControl.StreamType.RichTextFormat, --> formato rtf
-  TXTextControl.saveDocument(TXTextControl.StreamType.HTMLFormat,
+  TXTextControl.saveDocument(TXTextControl.StreamType.RichTextFormat,
+    // TXTextControl.saveDocument(TXTextControl.StreamType.HTMLFormat,
     function (e) {
       localStorage.setItem("datos", e.data)
     }
@@ -11,6 +11,6 @@ async function saveDocument() {
 
 function loadDocument(data) {
   console.log("load")
-  TXTextControl.loadDocument(TXTextControl.StreamType.HTMLFormat,
+  TXTextControl.loadDocument(TXTextControl.StreamType.RichTextFormat,
     btoa(data));
 }
