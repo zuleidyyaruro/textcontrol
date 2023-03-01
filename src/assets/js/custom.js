@@ -1,8 +1,11 @@
+
+
 async function saveDocument() {
 
   TXTextControl.saveDocument(TXTextControl.StreamType.RichTextFormat,
     // TXTextControl.saveDocument(TXTextControl.StreamType.HTMLFormat,
     function (e) {
+      console.log(1)
       localStorage.setItem("datos", e.data)
     }
   );
@@ -10,7 +13,6 @@ async function saveDocument() {
 }
 
 function loadDocument(data) {
-  console.log("load")
   TXTextControl.loadDocument(TXTextControl.StreamType.RichTextFormat,
     btoa(data));
 }

@@ -13,7 +13,6 @@ export class TextControlService {
     private _http: HttpClient,
   ) { }
 
-
   createDocumentoPlantilla(oRegistro: any) {
     let url: string = "http://127.0.0.1:9000/api/cemen/administracion/documentos-plantilla/";
     let headers = {
@@ -30,5 +29,8 @@ export class TextControlService {
     return this._http.put<any>(url, oRegistro, headers);
   }
 
+  getDocumentosPlantilla(id: number): Observable<any> {
+    return this._http.get<any>("http://localhost:9000/api/cemen/administracion/documentos-plantilla/" + id);
+  }
 
 }
