@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TextControlService } from './services/text-control.service';
 
+
 declare const saveDocument: any;
 declare const loadDocument: any;
 
@@ -20,31 +21,58 @@ export class AppComponent {
 
   }
 
-  onClickSave() {
-    saveDocument();
+  // crear
+  async onClickSave() {
 
-    // let documentSave =
-    // {
-    //   "denominacion": "Denominacion de prueba",
-    //   "plantilla": "<html><body><p>Cambiar contenido cuando este el diseño OK</p></body></html>",
-    //   "editable": true,
-    //   "observaciones": "",
-    //   "grupo_documento_plantilla": 1,
-    //   "tipo_documento_plantilla": 1,
-    //   "siglas_app": "CMT",
-    //   "borrado": false,
-    //   "id_fk_usuario": 1
-    // }
+    await saveDocument();
+    let datos = localStorage.getItem("datos");
+
+    let objeto =
+    {
+      "id": 4,
+      "username": "zuleidy.yaruro@maggioli-latam.com",
+      "denominacion": "Prueba",
+      "plantilla": datos,
+      "editable": true,
+      "observaciones": null,
+      "grupo_documento_plantilla": 2,
+      "tipo_documento_plantilla": 0,
+      "siglas_app": "CMT",
+      "borrado": false,
+      "id_fk_usuario": 3
+    }
+
+    if (objeto.id > 0) {
+      this._sTextControl.updateDocumentoPlantilla(objeto).subscribe(res => {
+        console.log(res)
+      })
+    } else {
+      this._sTextControl.createDocumentoPlantilla(objeto).subscribe(res => {
+        console.log(res)
+      })
+    }
 
 
-    // this._sTextControl.createDocumentoPlantilla(documentSave).subscribe(res => {
-    //   console.log(res)
-    // })
+    localStorage.removeItem("datos")
 
   }
 
   onClickLoad() {
     console.log("1")
-    loadDocument();
+    const objetoModificar = {
+      "id": 4,
+      "username": "zuleidy.yaruro@maggioli-latam.com",
+      "denominacion": "Prueba",
+      "plantilla": "<p>sajdhsajdhkjasdasdaszxczxczx</p>",
+      "editable": true,
+      "observaciones": null,
+      "grupo_documento_plantilla": 2,
+      "tipo_documento_plantilla": 0,
+      "siglas_app": "CMT",
+      "borrado": false,
+      "id_fk_usuario": 3
+    }
+    loadDocument(objetoModificar.plantilla);
+
   }
 }
