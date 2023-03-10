@@ -30,7 +30,7 @@ export class TextControlService {
   }
 
   getDocumentosPlantilla(id: number): Observable<any> {
-    return this._http.get<any>("http://localhost:9000/api/cemen/administracion/documentos-plantilla/" + id);
+    return this._http.get<any>("http://localhost:9000/api/cemen/administracion/documentos-plantilla/" + id + "/");
   }
 
 }

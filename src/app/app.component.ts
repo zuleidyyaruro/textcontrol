@@ -34,12 +34,12 @@ export class AppComponent implements OnInit {
 
     setTimeout(() => {
       let datos = localStorage.getItem("datos");
-
+      debugger;
       let objeto =
       {
-        "id": 0,
+        "id": 11,
         "username": "zuleidy.yaruro@maggioli-latam.com",
-        "denominacion": "Prueba 10",
+        "denominacion": "Prueba 11",
         "plantilla": datos,
         "editable": true,
         "observaciones": null,
@@ -66,7 +66,7 @@ export class AppComponent implements OnInit {
 
   async onClickLoad() {
 
-    const res = await lastValueFrom(this._sTextControl.getDocumentosPlantilla(14));
+    const res = await lastValueFrom(this._sTextControl.getDocumentosPlantilla(11));
     this.documento = await res.plantilla;
 
     loadDocument(this.documento)
